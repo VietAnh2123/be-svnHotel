@@ -29,5 +29,14 @@ public class GlobalExceptionHandler {
         return map;
     }
 
+    @ExceptionHandler(InvalidBookingRequestException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public Map<String, String> InvalidBookingRequestException(PhotoRetrievingExeption ex) {
+        Map<String, String> map = new HashMap<>();
+        map.put("message", ex.getMessage());
+
+        return map;
+    }
+
 
 }
